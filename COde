@@ -1,0 +1,622 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.io.*;
+import java.lang.*;
+public class Paint extends JFrame implements MouseMotionListener,MouseListener,ActionListener{
+    int ctrl;
+    Color col;
+    int thickness;
+    int inx,iny,clk=0;
+    int graphic=0,mctrl=0;
+    JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 50, 25);  ;
+JPanel P1 = new JPanel(new GridLayout(3,2,6,6));
+JPanel P2 = new JPanel(new GridLayout(2,6,0,0));
+JPanel P3 = new JPanel(new GridLayout(3,2,6,6));
+JPanel P4 = new JPanel();
+JPanel P5 = new JPanel(new GridLayout(8,4,6,6));
+static JButton b1 = new JButton();
+static JButton b2 = new JButton();
+static JButton b3 = new JButton();
+static JButton b4 = new JButton();
+static JButton b5 = new JButton();
+static JButton b6 = new JButton();
+static JButton b21 = new JButton();
+static JButton b22 = new JButton();
+static JButton b23 = new JButton();
+static JButton b24 = new JButton();
+static JButton b25 = new JButton();
+static JButton b26 = new JButton();
+static JButton b27 = new JButton();
+static JButton b28 = new JButton();
+static JButton b29 = new JButton();
+static JButton b210 = new JButton();
+static JButton b211 = new JButton();
+static JButton b212 = new JButton();
+static JButton b31 = new JButton();
+static JButton b32 = new JButton();
+static JButton b33 = new JButton();
+static JButton b34 = new JButton();
+static JButton b35 = new JButton();
+static JButton b36 = new JButton();
+static JButton b37 = new JButton();
+static JButton b38 = new JButton();
+static JButton b39 = new JButton();
+static JButton b40 = new JButton();
+static JButton b41 = new JButton();
+static JButton b42 = new JButton();
+static JButton b43 = new JButton();
+static JButton b44 = new JButton();
+static JButton b45 = new JButton();
+static JButton b46 = new JButton();
+static JButton b47 = new JButton();
+static JButton b48 = new JButton();
+static JButton b49 = new JButton();
+Paint(){
+  super("Paint by Acharya Aditya Pratap");    
+  Component obj = this;
+  JMenuBar mb = new JMenuBar();
+  JMenu File = new JMenu("File");
+  JMenu Edit = new JMenu("Edit");
+  JMenu View = new JMenu("View");
+  JMenu Help = new JMenu("Help");
+  JMenuItem i1 = new JMenuItem("New");
+  JButton b37 = new JButton("3d graphics");
+  b37.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    if(graphic==0)
+    graphic=1;
+    else
+    graphic=0;
+        }});
+  P4.add(b37);
+  b1.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=1;}});
+  b2.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=2;}});
+   b3.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=3;}});
+   b4.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=4;}});
+   b5.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=5;}}
+   ); 
+   b6.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=6;}});
+   b31.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=31 ;}});
+    b32.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=32;}});
+    b33.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=33;}});
+    b34.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl =34;}});
+    b35.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=35;}});
+    b36.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=36;}});
+    b38.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=38;}});
+        b39.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=39;}});
+        b40.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=40;}});
+        b41.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=41;}});
+        b42.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=42;}});
+        b43.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=43;}});
+        b44.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=44;}});
+        b45.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=45;}});
+        b46.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=46;}});
+        b47.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=47;}});
+        b48.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=48;}});
+        b49.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    ctrl=49;}});
+  b21.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=Color.white;
+    P1.setBackground(col);
+    P3.setBackground(col);
+    P4.setBackground(col);
+    P5.setBackground(col);
+}});
+  b22.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=Color.yellow;
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}});
+  b23.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=Color.blue;
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}});
+  b24.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=Color.magenta;
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}});  
+  b25.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=Color.green;
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}});
+  b26.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=JColorChooser.showDialog(obj,"Customized Adi COlOR",Color.black);
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}
+});
+  b27.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=Color.black;
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}}); 
+  b28.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col= Color.orange;
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}});
+  b29.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=Color.cyan;
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}});
+  b210.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=Color.red;
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}});
+  b211.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=Color.gray;
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}});
+  b212.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    col=new Color((float)0.2,(float)0.5,(float)0.2,(float)0.5);
+    P1.setBackground(col);
+    P3.setBackground(col);
+ P4.setBackground(col);
+    P5.setBackground(col);}});
+  i1.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    repaint();
+    }});
+  JMenuItem i2 = new JMenuItem("Open");
+  i2.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+    JFileChooser fc = new JFileChooser();
+    int j = fc.showOpenDialog(obj);
+    }});
+  JMenuItem i3 =new JMenuItem("Save");
+  i3.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+        JFrame fra = new JFrame("Saving in progress");
+        fra.setSize(250,150);
+        JProgressBar pg = new JProgressBar(0,2000);
+        pg.setBounds(40,40,160,30);
+        pg.setValue(0);
+        pg.setStringPainted(true);
+        fra.add(pg);
+        fra.setVisible(true);
+        for(int i =0;i<=2000;i+=20){
+            pg.setValue(i);
+            try{Thread.sleep(150);}catch(Exception ee){}    
+        }
+        if(pg.getValue()==2000)
+        fra.dispose();
+    }});
+  JMenuItem i4 = new JMenuItem("Exit");
+  i4.addActionListener(new ActionListener(){
+    public void actionPerformed(ActionEvent e){
+        int a=JOptionPane.showConfirmDialog(obj,"Are you sure??");
+        if(a==JOptionPane.YES_OPTION){  
+         dispose();
+} 
+
+    }});
+JMenuItem cut,copy,paste,selectAll;    
+cut=new JMenuItem("cut");    
+copy=new JMenuItem("copy");    
+paste=new JMenuItem("paste");    
+selectAll=new JMenuItem("selectAll");    
+cut.addActionListener(this);    
+copy.addActionListener(this);    
+paste.addActionListener(this);    
+selectAll.addActionListener(this);    
+JMenuItem view = new JMenuItem("VIEW");
+view.addActionListener(new ActionListener(){
+public void actionPerformed(ActionEvent e){
+String name = JOptionPane.showInputDialog("Enter name");
+JOptionPane.showMessageDialog(obj,name+" ,u gotta understand bud its a work in progress","Patience,"+name,JOptionPane.WARNING_MESSAGE);
+}});
+JMenuItem help = new JMenuItem("HELP");
+help.addActionListener(new ActionListener(){
+public void actionPerformed(ActionEvent e){
+String name = JOptionPane.showInputDialog("Enter name");
+JOptionPane.showMessageDialog(obj,name+" ,u gotta understand bud its a work in progress","Patience,"+name,JOptionPane.WARNING_MESSAGE);}});
+  File.add(i1);
+  File.add(i2);
+  File.add(i3);
+  File.add(i4);
+  Edit.add(cut);
+  Edit.add(copy);
+  Edit.add(paste);
+  Edit.add(selectAll);
+  View.add(view);
+  Help.add(help);
+  mb.add(File);
+  mb.add(Edit);
+  mb.add(View);
+  mb.add(Help);
+  setJMenuBar(mb);
+  
+P1.setBounds(0,0,100,250);
+        P4.setBounds(0,250,100,340);
+        P1.setBackground(Color.white);
+        P4.setBackground(Color.white);
+        add(P1);  
+        add(P4);
+        b21.setBackground(Color.white);
+        b22.setBackground(Color.yellow);
+        b23.setBackground(Color.blue);
+        b24.setBackground(Color.magenta);
+        b25.setBackground(Color.green);
+        b26.setText("Custom Color");
+        b27.setBackground(Color.black);
+        b28.setBackground(Color.orange);
+        b29.setBackground(Color.cyan);
+        b210.setBackground(Color.red);
+        b211.setBackground(Color.gray);
+        b212.setBackground(new Color((float)0.2,(float)0.5,(float)0.2,(float)0.5));
+        b212.setText("");
+        b1.setBackground(Color.white);
+        b2.setBackground(Color.white);
+        b3.setBackground(Color.white);
+        b4.setBackground(Color.white);
+        b5.setBackground(Color.white);
+        b6.setBackground(Color.white);
+        b31.setBackground(Color.white);
+        b32.setBackground(Color.white);
+        b33.setBackground(Color.white);
+        b34.setBackground(Color.white);
+        b35.setBackground(Color.white);
+        b36.setBackground(Color.white);
+        P1.add(b1);
+        P1.add(b2);
+        P1.add(b3);
+        P1.add(b4);
+        P1.add(b5);
+        P1.add(b6);
+        JSeparator s =new JSeparator();
+        add(s);
+        P2.setBounds(0,590,1400,100);
+        P2.setBackground(Color.white);
+        add(P2);
+        P2.add(b21);
+        P2.add(b22);
+        P2.add(b23);
+        P2.add(b24);
+        P2.add(b25);
+        P2.add(b26);
+        P2.add(b27);
+        P2.add(b28);
+        P2.add(b29);
+        P2.add(b210);
+        P2.add(b211);
+        P2.add(b212);
+        P5.setBounds(1265,250,100,340);
+        P5.setBackground(Color.white);
+        P3.setBounds(1265,0,100,250);
+        P3.setBackground(Color.white);
+        add(P3);
+        P3.add(b31);
+        P3.add(b32);
+        P3.add(b33);
+        P3.add(b34);
+        P3.add(b35);
+        P3.add(b36);
+        add(P5);
+        b38.setBackground(Color.white);
+        P5.add(b38);
+        b39.setBackground(Color.white);
+        P5.add(b39);
+        b40.setBackground(Color.white);
+        P5.add(b40);
+        b41.setBackground(Color.white);
+        P5.add(b41);
+        b42.setBackground(Color.white);
+        P5.add(b42);
+        b43.setBackground(Color.white);
+        P5.add(b43);
+        b44.setBackground(Color.white);
+        P5.add(b44);
+        b45.setBackground(Color.white);
+        P5.add(b45);
+        b46.setBackground(Color.white);
+        P5.add(b46);
+        b47.setBackground(Color.white);
+        P5.add(b47);
+        b48.setBackground(Color.white);
+        P5.add(b48);
+        b49.setBackground(Color.white);
+        P5.add(b49);
+        JLabel label = new JLabel();
+        label.setHorizontalAlignment(JLabel.CENTER);
+        label.setText("Thickness");
+        P4.add(label);
+        P4.add(slider);
+                setSize(400,400);    
+                setLayout(null);    
+                setVisible(true);
+                addMouseListener(this);
+                addMouseMotionListener(this);
+}    
+public void mouseDragged(MouseEvent e){
+thickness = slider.getValue(); 
+Graphics g = getGraphics();
+g.setColor(col);
+if(ctrl==1){g.fillRect(e.getX(),e.getY(),(int)thickness/2,(int)thickness/2);}
+else
+if(ctrl==2){
+g.fillOval(e.getX(),e.getY(),(int)thickness/2,(int)thickness/2);}
+else
+if(ctrl==3){
+for(int i=-90;i<=90;i++)
+for(double j=Math.sin(i);j>-Math.sin(i);j-=(thickness)*0.01)
+g.fillOval(e.getX()+(int)(thickness*Math.cos(i)),e.getY()+(int)(thickness*Math.sin(i)),1,1); 
+}
+else
+if(ctrl==4){
+g.drawLine(e.getX(),e.getY(),e.getX()+1,e.getY()+1);}
+else
+if(ctrl==5){
+g.drawLine(e.getX(),e.getY(),e.getX()+1,e.getY()+1);}
+else
+if(ctrl==6)
+{
+g.setColor(Color.white);
+g.fillRect(e.getX(),e.getY(),(int)thickness/2,(int)thickness/2);
+g.setColor(col);
+}
+}
+
+public void mouseMoved(MouseEvent e){
+    if(mctrl==1){
+thickness = slider.getValue(); 
+Graphics g = getGraphics();
+g.setColor(col);
+if(clk==1)
+if(ctrl==31)
+g.drawRect(inx,iny,Math.abs(e.getX()-inx),Math.abs(e.getY()-iny));
+else
+if(ctrl==32)
+g.drawLine(inx,iny,e.getX(),e.getY());
+else
+if(ctrl==33)
+g.drawOval(inx,iny,Math.abs(e.getX()-inx),Math.abs(e.getY()-iny));
+else
+if(ctrl==34){
+if(Math.abs(e.getX()-inx)>Math.abs(e.getY()-iny))  
+g.drawOval(inx,iny,Math.abs(e.getX()-inx),Math.abs(e.getX()-inx));
+else
+g.drawOval(inx,iny,Math.abs(e.getY()-iny),Math.abs(e.getY()-iny));
+}
+}
+}
+public void mouseClicked(MouseEvent e){
+thickness = slider.getValue(); 
+Graphics g = getGraphics();
+g.setColor(col);
+Toolkit t = Toolkit.getDefaultToolkit();
+if(ctrl==1){g.fillRect(e.getX(),e.getY(),(int)thickness/2,(int)thickness/2);}
+else
+if(ctrl==2){
+g.fillOval(e.getX(),e.getY(),(int)thickness/2,(int)thickness/2);}
+else
+if(ctrl==3){
+for(int i=-90;i<=90;i++)
+for(double j=Math.sin(i);j>-Math.sin(i);j-=(thickness)*0.01)
+g.fillOval(e.getX()+(int)(thickness*Math.cos(i)),e.getY()+(int)(thickness*Math.sin(i)),1,1); 
+}
+else
+if(ctrl==4){
+g.drawLine(e.getX(),e.getY(),e.getX()+1,e.getY()+1);}
+else
+if(ctrl==5){
+g.drawLine(e.getX(),e.getY(),e.getX()+1,e.getY()+1);}
+else
+if(ctrl==6)
+{
+g.setColor(Color.white);
+g.fillRect(e.getX(),e.getY(),(int)thickness/2,(int)thickness/2);
+g.setColor(col);
+}
+else
+if(ctrl==35)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\leaves.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==36)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\sun.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==38)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e1.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==39)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e2.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==40)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e3.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==41)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e4.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==42)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e5.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==43)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e6.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==44)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e7.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==45)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e8.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==46)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e9.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==47)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e10.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==48)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e11.jpg"),e.getX(),e.getY(),this);
+else
+if(ctrl==49)
+g.drawImage(t.getImage("C:\\Users\\Aditya\\Desktop\\e12.jpg"),e.getX(),e.getY(),this);
+else
+{
+inx=e.getX();
+iny=e.getY();
+clk=1;
+}
+if(graphic==1 && mctrl==0)
+{
+mctrl=1;
+}
+else{
+mctrl=0;
+graphic=0;
+}
+}  
+public void mouseEntered(MouseEvent e){}  
+public void mouseExited(MouseEvent e){}  
+public void mousePressed(MouseEvent e){}  
+public void mouseReleased(MouseEvent e){
+thickness = slider.getValue(); 
+Graphics g = getGraphics();
+g.setColor(col);
+if(clk==1)
+if(ctrl==31)
+g.drawRect(inx,iny,Math.abs(e.getX()-inx),Math.abs(e.getY()-iny));
+else
+if(ctrl==32)
+g.drawLine(inx,iny,e.getX(),e.getY());
+else
+if(ctrl==33)
+g.drawOval(inx,iny,Math.abs(e.getX()-inx),Math.abs(e.getY()-iny));
+else
+if(ctrl==34){
+if(Math.abs(e.getX()-inx)>Math.abs(e.getY()-iny))  
+g.drawOval(inx,iny,Math.abs(e.getX()-inx),Math.abs(e.getX()-inx));
+else
+g.drawOval(inx,iny,Math.abs(e.getY()-iny),Math.abs(e.getY()-iny));
+}
+clk=0;
+}  
+public void actionPerformed(ActionEvent e){}
+public static void main(String[]args){  
+ImageIcon ic1 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\cil.jpg");
+b1.setIcon(ic1);    
+ImageIcon ic2 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\Pen.jpg");
+b2.setIcon(ic2);
+ImageIcon ic3 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\spraypaint.jpg");
+b3.setIcon(ic3);
+ImageIcon ic4 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\sketchpen.jpg");
+b4.setIcon(ic4);
+ImageIcon ic5 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\brush.jpg");
+b5.setIcon(ic5);
+ImageIcon ic6 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\eraser.jpg");
+b6.setIcon(ic6);
+ImageIcon ic31 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\rect.jpg");
+b31.setIcon(ic31);
+ImageIcon ic32 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\line.jpg");
+b32.setIcon(ic32);
+ImageIcon ic33 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\oval.jpg");
+b33.setIcon(ic33);
+ImageIcon ic34 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\circle.jpg");
+b34.setIcon(ic34);
+ImageIcon ic35 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\leaves.jpg");
+b35.setIcon(ic35);
+ImageIcon ic36 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\sun.jpg");
+b36.setIcon(ic36);
+ImageIcon ic38 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e1.jpg");
+b38.setIcon(ic38);
+ImageIcon ic39 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e2.jpg");
+b39.setIcon(ic39);
+ImageIcon ic40 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e3.jpg");
+b40.setIcon(ic40);
+ImageIcon ic41 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e4.jpg");
+b41.setIcon(ic41);
+ImageIcon ic42 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e5.jpg");
+b42.setIcon(ic42);
+ImageIcon ic43 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e6.jpg");
+b43.setIcon(ic43);
+ImageIcon ic44 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e7.jpg");
+b44.setIcon(ic44);
+ImageIcon ic45 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e8.jpg");
+b45.setIcon(ic45);
+ImageIcon ic46 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e9.jpg");
+b46.setIcon(ic46);
+ImageIcon ic47 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e10.jpg");
+b47.setIcon(ic47);
+ImageIcon ic48 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e11.jpg");
+b48.setIcon(ic48);
+ImageIcon ic49 = new ImageIcon("C:\\Users\\Aditya\\Desktop\\e12.jpg");
+b49.setIcon(ic49);
+new Paint();
+}
+}
+
+
